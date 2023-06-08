@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <link rel="icon" href="./favicon-32x32.png">
+    <title>Article preview component</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+</head>
+<style>
+
+    @font-face {
+        font-family: 'MyCustomFont';
+        src: url('./Manrope-VariableFont_wght.ttf') format('woff2');
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'MyCustomFont', sans-serif;
+    }
+
+    body, html {
+        color: hsl(217, 19%, 35%);
+        display: flex;
+        justify-content: center;
+    }
+  
+    .container {
+        width: 100vw;
+        height: 100vh;
+        background-color: hsl(210, 46%, 95%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #main {
+        width: 65vw;
+        height: 50vh;
+        background-color: white;
+        border-radius: 10px;
+        display: flex;
+
+    }
+
+    #content {
+        width: 65vw;
+    }
+    
+    #image img {
+        width: 326px;
+        height: 100%;
+        border-radius: 10px 0 0 10px;
+    }
+
+    #main-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    #head, #paragraph, #avatar {
+        width: 90%;
+    }
+
+    #paragraph p {
+        padding-top: 10px;
+    }
+
+    #head {
+        padding: 10px 0;
+    }
+
+    .avatar #she-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+
+    #share {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        position: relative;
+    }
+    
+    .share-icon {
+        color: #48556a;
+        background-color: hsl(10, 46%, 95%);
+        border-radius: 50%;
+        position: absolute;
+    }
+
+    .avatar {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+
+    }
+
+    .info {
+        width: 90%;
+        display: flex;
+        align-items: center;
+    }
+
+    .avatar #share .fa-sharp {
+        padding: 8px;
+    }
+
+    .avatar #share .fa-sharp:hover {
+        cursor: pointer;
+    }
+
+    .fa-sharp2 {
+        border-radius: 50%;
+        color:  hsl(10, 46%, 95%);
+        background-color: hsl(217, 19%, 35%);
+    }
+
+    .share-apps {
+        display: none;
+    }
+
+    .share-apps2 {
+        display: flex;
+        position: absolute;
+        width: 250px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        bottom: 3rem;
+        right: -6.2rem;
+        z-index: 2;
+        width: max-content;
+        overflow: visible;
+        background-color: hsl(217, 19%, 35%);
+        border-radius: 10px;
+    }
+
+    #rectangle {
+        width: 230px;
+        height: 60px;
+        border-radius: 10px;
+    }
+
+    #rectangle-content img, #rectangle-content p {
+        padding: 12px;
+        cursor: pointer;
+    }
+ 
+    #rectangle-content {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #triangle {
+        width: 0;
+        height: 0;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-top: 12px solid hsl(217, 19%, 35%);
+        position: absolute;
+        bottom: -10px;
+    }
+
+    #about-her {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    @media only screen and (max-width: 1115px) {
+
+        #main {
+            width: 95vw;
+            height:52vh;
+        }
+
+        #content {
+            width: 85vw;
+        }
+
+        #image img {
+        width: 290px;
+        height: 100%;
+        border-radius: 10px 0 0 10px;
+        }
+
+        h2 {
+            font-size: 17px;
+        }
+
+        h5 {
+            font-size: 10px;
+        }
+
+        #about-her p {
+            font-size: 8px;
+        }
+
+        #paragraph p {
+            font-size: 10px;
+        }
+
+        #about-her {
+        padding: 0 5px;
+        }
+
+        .avatar #she-avatar {
+        width: 40px;
+        height: 40px;
+        }
+    }
+    
+    @media only screen and (max-width: 460px) {
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #main {
+            width: 90vw;
+            height: 90vh;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #image {
+            width: 100%;
+            height: 300px;
+        }
+
+        #content {
+            width: 90vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 70vh;
+        }
+
+        h2 {
+            font-size: 17px;
+        }
+
+        h5 {
+            font-size: 10px;
+        }
+
+        #about-her p {
+            font-size: 12px;
+        }
+
+        #paragraph p {
+            font-size: 14px;
+        }
+
+        #image img {
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            padding: 0;
+        }
+
+        .info {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            margin-left: 15px;
+        }
+
+        #about-her {
+            width: 100%;
+        }
+
+        /*Js On Click*/
+
+        .info2 {
+            display: none;
+        }
+    
+        #share {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-right: 20px;
+        }
+
+        .share-icon {
+            width: 10%;
+            color: #48556a;
+            border-radius: 50%;
+        }
+
+        .avatar2 {
+            height: 40%;
+            border-radius: 0 0 10px 10px;
+            background-color: #48556a;
+            margin-top: 10px;
+        }
+
+        .fa-sharp2 {
+            background-color: hsl(212, 23%, 69%);
+        }
+
+        .share-apps2 {
+            bottom: -5px;
+            right: 50px;
+            background-color: transparent;
+        }
+
+        #triangle {
+            display: none;
+        }
+
+        #rectangle {
+            width: 100%;
+            height: 50px;
+        }
+
+    }
+</style>
+<body>
+    <div class="container">
+        <div id="main">
+            <div id="image">
+                <img src="./drawers.jpg" alt="">
+            </div>
+            <div id="content">
+                <div id="main-content">
+
+                    <div id="head">
+                        <h2>
+                            Shift the overall look and feel by adding these wonderful
+                            touches to furniture in your home
+                        </h2>
+                    </div>
+                    <div id="paragraph">
+                        <p>
+                            Ever been in a room and felt like something was missing?
+                            Perhaps it felt slightly bare and uninviting.
+                            I've got some simple tips to help you make any room feel complete.
+                        </p>
+                    </div>
+                    <div class="avatar">
+                        <div class="info">
+                            <img src="./avatar-michelle.jpg" id="she-avatar">
+                            <div id="about-her">
+                                <h5>Michelle Appleton</h5>
+                                <p>28 Jun 2020</p>
+                            </div>
+                        </div>
+                        <div id="share">
+                            <div id="share-icon">
+                                <img src="./icon-share.svg" class="fa-sharp fa-solid fa-share"></img>
+                                
+                            </div>
+                            <div class="share-apps">
+                                <div id="rectangle">
+                                    <div id="rectangle-content">
+                                        <p style="color:  hsl(214, 17%, 51%)">SHARE</p>
+                                        <img src="./icon-facebook.svg" id="facebook">
+                                        <img src="./icon-twitter.svg" id="twitter">
+                                        <img src="./icon-pinterest.svg" id="pinterest">
+                                    </div>
+                                </div>
+                                <div id="triangle"></div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const faSharp = document.getElementsByClassName("fa-sharp");
+        const shareApps = document.getElementsByClassName("share-apps");
+        const avatar = document.getElementsByClassName("avatar");
+        const info = document.getElementsByClassName("info")
+        const shareIcon = document.getElementsByClassName("share-icon")
+
+        for (let i = 0; i < faSharp.length; i++) {
+   
+            faSharp[i].addEventListener('click', (event) => {
+                event.preventDefault();
+                faSharp[i].classList.toggle("fa-sharp2");
+
+                shareApps[0].classList.toggle("share-apps2");
+                info[0].classList.toggle("info2");
+                avatar[0].classList.toggle("avatar2");
+            })
+        } 
+    </script>
+
+</body>
+</html>
+
